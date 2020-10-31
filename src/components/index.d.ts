@@ -2,7 +2,7 @@ import { HTMLAttributes, ReactNode, FC, NamedExoticComponent, ChangeEvent } from
 
 export interface BtnProps extends HTMLAttributes<HTMLElement> {
 	color?: 'red' | 'purple' | 'green';
-	large?: boolean;
+	lg?: boolean;
 	disabled?: boolean;
 }
 

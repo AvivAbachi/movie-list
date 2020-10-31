@@ -1,14 +1,16 @@
 import React, { FC, memo } from 'react';
 import { observer } from 'mobx-react-lite';
-import { AnimatePresence, AnimateSharedLayout, motion } from 'framer-motion';
+// import { AnimatePresence, AnimateSharedLayout, motion } from 'framer-motion';
 
 const List: FC<ChildrenProps> = ({ children }) => {
 	return (
-		<AnimateSharedLayout>
-			<motion.div className='list' layout>
-				<AnimatePresence presenceAffectsLayout>{children}</AnimatePresence>
-			</motion.div>
-		</AnimateSharedLayout>
+		// <AnimateSharedLayout>
+		<div className='list'>
+			{/* <AnimatePresence presenceAffectsLayout> */}
+			{children}
+			{/* </AnimatePresence> */}
+		</div>
+		// </AnimateSharedLayout>
 	);
 };
 

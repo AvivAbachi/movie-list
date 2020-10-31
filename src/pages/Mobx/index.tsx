@@ -1,4 +1,4 @@
-import React, { FC, useContext } from 'react';
+import React, { FC, useContext, useRef } from 'react';
 import { Btn, ObserverCard, ObserverList, Page, Radio, RadioGroup } from '../../components';
 import { observer } from 'mobx-react-lite';
 import { MobxContext } from './store';
@@ -11,26 +11,28 @@ const MobxCard: FC<CardProps> = observer(function MobxCard({ movie }) {
 
 const MobxList = observer(function Queue() {
 	const { movies, queue, notQueue, filter } = useContext(MobxContext);
-	const list: MoviesT = filter === 'All' ? movies : filter === 'IN_QUEUE' ? queue : filter === 'NOT_IN_QUEUE' ? notQueue : [];
 	return (
 		<ObserverList>
-			{list.map((movie) => (
-				<MobxCard key={movie.id} movie={movie} />
-			))}
+			{filter === 'All' && movies.map((movie) => <MobxCard key={movie.id} movie={movie} />)}
+			{filter === 'IN_QUEUE' && queue.map((movie) => <MobxCard key={movie.id} movie={movie} />)}
+			{filter === 'NOT_IN_QUEUE' && notQueue.map((movie) => <MobxCard key={movie.id} movie={movie} />)}
 		</ObserverList>
 	);
 });
 
 const Mobx = () => {
 	const { getNewMovies, filter, setFilter, status } = useContext(MobxContext);
+	const all = useRef(() => setFilter('All'));
+	const inQueue = useRef(() => setFilter('IN_QUEUE'));
+	const notInQueue = useRef(() => setFilter('NOT_IN_QUEUE'));
 	return (
 		<Page>
 			<RadioGroup>
-				<Radio label='Movies List' isSelected={filter === 'All'} changed={() => setFilter('All')} />
-				<Radio label='Queue List' isSelected={filter === 'IN_QUEUE'} changed={() => setFilter('IN_QUEUE')} />
-				<Radio label='Not in Queue' isSelected={filter === 'NOT_IN_QUEUE'} changed={() => setFilter('NOT_IN_QUEUE')} />
+				<Radio label='Movies List' isSelected={filter === 'All'} changed={all.current} />
+				<Radio label='Queue List' isSelected={filter === 'IN_QUEUE'} changed={inQueue.current} />
+				<Radio label='Not in Queue' isSelected={filter === 'NOT_IN_QUEUE'} changed={notInQueue.current} />
 			</RadioGroup>
-			<Btn onClick={getNewMovies} large>
+			<Btn onClick={getNewMovies} lg>
 				{status === 'FETCH' ? 'Please Wait...' : status === 'ERROR' ? 'Try Again!' : 'Get New Movies'}
 			</Btn>
 			<MobxList />

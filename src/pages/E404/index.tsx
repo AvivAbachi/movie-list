@@ -12,7 +12,7 @@ const E404: FC = () => {
 				<h2 className='e404__title'>404</h2>
 				<h3 className='e404__subtitle'>{`Sorry we couldn't find this page.`}</h3>
 				<p className='e404__paragraph'>{`But don't worry, you can back homepage.`}</p>
-				<Btn large onClick={() => setRedirect(true)}>
+				<Btn onClick={() => setRedirect(true)} lg>
 					Back to Home Page
 				</Btn>
 				{redirect && <Redirect to='/' />}

@@ -1,5 +1,6 @@
 import React, { memo } from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
+import './App.css';
 
 import HooksProvider from './pages/Hooks/useMovies';
 import MobxProvider from './pages/Mobx/store';

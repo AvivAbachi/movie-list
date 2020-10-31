@@ -2,13 +2,13 @@ import React, { createContext, FC, memo, useRef, useState } from 'react';
 import { fetchMovies } from '../../lib/fetchMovies';
 import { FilterT, MoviesHooksT, StatusT } from './hooks';
 import distinctArray from '../../lib/distinctArray';
-import { mov } from '../../lib/simpleData';
 
 const useMovies = (): MoviesHooksT => {
-	const [movies, setMovies] = useState<MoviesT>(mov);
+	const [movies, setMovies] = useState<MoviesT>([]);
 	const [filter, setStateFilter] = useState<FilterT>('All');
-	const [status, setStateStatus] = useState<StatusT>('SUCCESS');
+	const [status, setStateStatus] = useState<StatusT>();
 	const page = useRef<number>(1);
+
 	const _getNewMovies = async () => {
 		setStatus.current('FETCH');
 		const res = await fetchMovies(page.current);
@@ -22,22 +22,16 @@ const useMovies = (): MoviesHooksT => {
 	};
 	const _setQueue = (movie: MovieT) => {
 		setMovies((movies) => {
-			const idx = movies.indexOf(movie);
-			movies[idx].isQueue = !movies[idx].isQueue;
-			return movies;
-			// movies.map((prevMovie: MovieT) => {
-			// 	return prevMovie.id === movie.id ? { ...prevMovie, isQueue: !movie.isQueue } : prevMovie;
-			// })
+			return movies.map((pMovie: MovieT) => {
+				return pMovie.id === movie.id ? { ...pMovie, isQueue: !movie.isQueue } : pMovie;
+			});
 		});
 	};
 	const _setLike = (movie: MovieT) => {
 		setMovies((movies) => {
-			const idx = movies.indexOf(movie);
-			movies[idx].like = !movies[idx].like;
-			return movies;
-			// 	movies.map((prevMovie: MovieT) => {
-			// 		return prevMovie.id === movie.id ? { ...prevMovie, like: !movie.like } : prevMovie;
-			// 	})
+			return movies.map((pMovie: MovieT) => {
+				return pMovie.id === movie.id ? { ...pMovie, like: !movie.like } : pMovie;
+			});
 		});
 	};
 	const _setFilter = (filter: FilterT) => {
@@ -51,6 +45,7 @@ const useMovies = (): MoviesHooksT => {
 	const setLike = useRef(_setLike);
 	const setFilter = useRef(_setFilter);
 	const setStatus = useRef(_setStatus);
+
 	return {
 		movies,
 		filter,
@@ -65,9 +60,9 @@ const useMovies = (): MoviesHooksT => {
 	};
 };
 
-export const HooksContext = createContext<MoviesHooksT>({} as MoviesHooksT);
+export const HooksContext = createContext<MoviesHooksT | null>(null);
 
-const HooksProvider: FC<ChildrenProps> = ({ children }: ChildrenProps) => {
+const HooksProvider: FC<ChildrenProps> = ({ children }) => {
 	const hooks = useMovies();
 	return <HooksContext.Provider value={hooks}>{children}</HooksContext.Provider>;
 };

@@ -1,4 +1,4 @@
-import React, { createContext, FC } from 'react';
+import React, { createContext, FC, useRef } from 'react';
 import { action, observable } from 'mobx';
 import { observer, useLocalObservable } from 'mobx-react-lite';
 import { fetchMovies } from '../../lib/fetchMovies';
@@ -35,9 +35,9 @@ const MobxStore: MobxStoreT = observable({
 
 export const MobxContext = createContext<MobxStoreT>(MobxStore);
 
-const MobxProvider: FC<ChildrenProps> = ({ children }: ChildrenProps) => {
-	const mobx = useLocalObservable(() => MobxStore);
-	return <MobxContext.Provider value={mobx}>{children}</MobxContext.Provider>;
+const MobxProvider: FC<ChildrenProps> = ({ children }) => {
+	const mobx = useRef(useLocalObservable(() => MobxStore));
+	return <MobxContext.Provider value={mobx.current}>{children}</MobxContext.Provider>;
 };
 
 export default observer(MobxProvider);

@@ -1,26 +1,14 @@
-import { motion } from 'framer-motion';
+// import { motion } from 'framer-motion';
 import { createElement, FC, memo, useRef } from 'react';
 import { BtnProps } from './index.d';
 
-const Btn: FC<BtnProps> = ({ onClick, children, className, color, large, disabled }) => {
-	const Tag = useRef(onClick ? motion.button : 'div');
-	const btnColor = useRef(`btn${color === 'purple' ? ' btn-purple' : color === 'red' ? ' btn-red' : color === 'green' ? ' btn-green' : ''}`);
-	const attrs = useRef(
-		onClick
-			? {
-					disabled: disabled,
-					onClick: onClick,
-					className: btnColor.current + (large ? ' btn-lg' : '') + (className ? ` ${className}` : ''),
-					whileHover: { scale: 1.15 },
-					whileTap: { scale: 0.95 },
-					transition: { type: 'spring', velocity: 5, stiffness: 500 },
-			  }
-			: {
-					disabled: disabled,
-					className: btnColor.current + (large ? ' btn-lg' : '') + (className ? ` ${className}` : ''),
-			  }
+const Btn: FC<BtnProps> = (props) => {
+	const Tag = useRef(props.onClick ? 'button' : 'div');
+	const btnColor = useRef(
+		`${props.color === 'purple' ? ' btn-purple' : props.color === 'red' ? ' btn-red' : props.color === 'green' ? ' btn-green' : ''}`
 	);
 
-	return createElement(Tag.current, attrs.current, children);
+	const btnClass = 'btn' + btnColor.current + (props.lg ? ' btn-lg' : '') + (props.className ? ` ${props.className}` : '');
+	return createElement(Tag.current, { ...props, className: btnClass, onClick: props.onClick, lg: undefined }, props.children);
 };
 export default memo(Btn);
