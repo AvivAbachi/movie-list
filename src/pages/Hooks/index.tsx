@@ -1,11 +1,16 @@
-import React, { memo, useContext, useRef } from 'react';
+import React, { memo, useCallback, useContext, useRef } from 'react';
 import { CardProps } from '../../components/index.d';
-import { Btn, Card, List, Page, Radio, RadioGroup } from '../../components';
+import { Card, List, Page, Radio, RadioGroup } from '../../components';
 import { HooksContext } from './useMovies';
+import BtnFetch from '../../components/BtnFetch';
 
 const HooksCard = memo<CardProps>(function HooksCard({ movie }) {
 	const context = useContext(HooksContext);
-	return <Card key={movie.id} movie={movie} onLike={() => context?.setLike(movie)} onQueue={() => context?.setQueue(movie)} />;
+	// eslint-disable-next-line react-hooks/exhaustive-deps
+	const setLike = useCallback(() => context?.setLike(movie), [context?.setLike, movie.like]);
+	// eslint-disable-next-line react-hooks/exhaustive-deps
+	const setQueue = useCallback(() => context?.setQueue(movie), [context?.setQueue, movie.isQueue]);
+	return <Card key={movie.id} movie={movie} onLike={setLike} onQueue={setQueue} />;
 });
 
 const HookList = memo(function HookList() {
@@ -14,7 +19,6 @@ const HookList = memo(function HookList() {
 		<List>
 			{context?.filter === 'All' && context.movies.map((movie) => <HooksCard key={movie.id} movie={movie} />)}
 			{context?.filter === 'IN_QUEUE' && context.queue.map((movie) => <HooksCard key={movie.id} movie={movie} />)}
-			{context?.filter === 'NOT_IN_QUEUE' && context.notQueue.map((movie) => <HooksCard key={movie.id} movie={movie} />)}
 		</List>
 	);
 });
@@ -23,17 +27,15 @@ const Hooks = () => {
 	const context = useContext(HooksContext);
 	const all = useRef(() => context?.setFilter('All'));
 	const inQueue = useRef(() => context?.setFilter('IN_QUEUE'));
-	const notInQueue = useRef(() => context?.setFilter('NOT_IN_QUEUE'));
 	return (
-		<Page>
-			<RadioGroup>
-				<Radio label='Movies List' isSelected={context?.filter === 'All'} changed={all.current} />
-				<Radio label='Queue List' isSelected={context?.filter === 'IN_QUEUE'} changed={inQueue.current} />
-				<Radio label='Not in Queue' isSelected={context?.filter === 'NOT_IN_QUEUE'} changed={notInQueue.current} />
-			</RadioGroup>
-			<Btn onClick={context?.getNewMovies} lg>
-				{context?.status === 'FETCH' ? 'Please Wait...' : context?.status === 'ERROR' ? 'Try Again!' : 'Get New Movies'}
-			</Btn>
+		<Page className='max-h-full'>
+			<div className='toolbar'>
+				<RadioGroup>
+					<Radio label='Movies List' isSelected={context?.filter === 'All'} changed={all.current} />
+					<Radio label='Queue List' isSelected={context?.filter === 'IN_QUEUE'} changed={inQueue.current} />
+				</RadioGroup>
+				<BtnFetch onClick={context?.getNewMovies} status={context?.status} />
+			</div>
 			<HookList />
 		</Page>
 	);

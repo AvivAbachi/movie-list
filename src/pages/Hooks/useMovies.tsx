@@ -22,15 +22,15 @@ const useMovies = (): MoviesHooksT => {
 	};
 	const _setQueue = (movie: MovieT) => {
 		setMovies((movies) => {
-			return movies.map((pMovie: MovieT) => {
-				return pMovie.id === movie.id ? { ...pMovie, isQueue: !movie.isQueue } : pMovie;
+			return movies.map((stateMovie: MovieT) => {
+				return stateMovie.id === movie.id ? { ...stateMovie, isQueue: !stateMovie.isQueue } : stateMovie;
 			});
 		});
 	};
 	const _setLike = (movie: MovieT) => {
 		setMovies((movies) => {
-			return movies.map((pMovie: MovieT) => {
-				return pMovie.id === movie.id ? { ...pMovie, like: !movie.like } : pMovie;
+			return movies.map((stateMovie: MovieT) => {
+				return stateMovie.id === movie.id ? { ...stateMovie, like: !stateMovie.like } : stateMovie;
 			});
 		});
 	};

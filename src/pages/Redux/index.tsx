@@ -1,13 +1,12 @@
 import React, { memo, useRef } from 'react';
-import { Btn, Card, List, Page, Radio, RadioGroup } from '../../components';
-
+import { Card, List, Page, Radio, RadioGroup } from '../../components';
 import { useDispatch } from 'react-redux';
 import { useTypedSelector } from './store/reducer';
 import { getNewMovies, setFilter, setLike, setQueue } from './store/action';
 import movieFilter from './store/selectors/selectors';
-import * as statusT from './store/constants/statusTypes';
 import * as filterT from './store/constants/filterTypes';
 import { CardProps } from '../../components/index.d';
+import BtnFetch from '../../components/BtnFetch';
 
 const ReduxCard = memo<CardProps>(function ReduxCard({ movie }) {
 	const dispatch = useDispatch();
@@ -31,17 +30,13 @@ const Redux = () => {
 	const status = useTypedSelector((state) => state.store.status);
 	const all = useRef(() => dispatch(setFilter(filterT.ALL)));
 	const inQueue = useRef(() => dispatch(setFilter(filterT.IN_QUEUE)));
-	const notInQueue = useRef(() => dispatch(setFilter(filterT.NOT_IN_QUEUE)));
 	return (
 		<Page>
 			<RadioGroup>
 				<Radio label='Movies List' isSelected={filter === filterT.ALL} changed={all.current} />
 				<Radio label='Queue List' isSelected={filter === filterT.IN_QUEUE} changed={inQueue.current} />
-				<Radio label='Not in Queue' isSelected={filter === filterT.NOT_IN_QUEUE} changed={notInQueue.current} />
 			</RadioGroup>
-			<Btn disabled={status === statusT.FETCH} onClick={async () => dispatch(await getNewMovies())} lg>
-				{status === statusT.FETCH ? 'Please Wait...' : status === statusT.ERROR ? 'Try Again!' : 'Get New Movies'}
-			</Btn>
+			<BtnFetch onClick={async () => dispatch(await getNewMovies())} status={status} />
 			<ReduxList />
 		</Page>
 	);

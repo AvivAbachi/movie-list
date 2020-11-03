@@ -21,16 +21,16 @@ const storeReducer = (state = initialState, action: ActionT): ReduxStoreT => {
 		case SET_QUEUE: {
 			return {
 				...state,
-				movies: state.movies.map((pMovie) => {
-					return pMovie.id === action.payload.id ? { ...pMovie, isQueue: !pMovie.isQueue } : pMovie;
+				movies: state.movies.map((stateMovie) => {
+					return stateMovie.id === action.payload.id ? { ...stateMovie, isQueue: !stateMovie.isQueue } : stateMovie;
 				}),
 			};
 		}
 		case SET_LIKE: {
 			return {
 				...state,
-				movies: state.movies.map((pMovie) => {
-					return pMovie.id === action.payload.id ? { ...pMovie, like: !pMovie.like } : pMovie;
+				movies: state.movies.map((stateMovie) => {
+					return stateMovie.id === action.payload.id ? { ...stateMovie, like: !stateMovie.like } : stateMovie;
 				}),
 			};
 		}
