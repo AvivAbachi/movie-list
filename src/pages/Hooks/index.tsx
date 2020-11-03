@@ -3,6 +3,7 @@ import { CardProps } from '../../components/index.d';
 import { Card, List, Page, Radio, RadioGroup } from '../../components';
 import { HooksContext } from './useMovies';
 import BtnFetch from '../../components/BtnFetch';
+import Toolbar from '../../components/Toolbar';
 
 const HooksCard = memo<CardProps>(function HooksCard({ movie }) {
 	const context = useContext(HooksContext);
@@ -29,13 +30,13 @@ const Hooks = () => {
 	const inQueue = useRef(() => context?.setFilter('IN_QUEUE'));
 	return (
 		<Page className='max-h-full'>
-			<div className='toolbar'>
+			<Toolbar>
 				<RadioGroup>
 					<Radio label='Movies List' isSelected={context?.filter === 'All'} changed={all.current} />
 					<Radio label='Queue List' isSelected={context?.filter === 'IN_QUEUE'} changed={inQueue.current} />
 				</RadioGroup>
 				<BtnFetch onClick={context?.getNewMovies} status={context?.status} />
-			</div>
+			</Toolbar>
 			<HookList />
 		</Page>
 	);

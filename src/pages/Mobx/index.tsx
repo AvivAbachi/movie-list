@@ -4,6 +4,7 @@ import { observer } from 'mobx-react-lite';
 import { MobxContext } from './store';
 import { CardProps } from '../../components/index.d';
 import BtnFetch from '../../components/BtnFetch';
+import Toolbar from '../../components/Toolbar';
 
 const MobxCard: FC<CardProps> = observer(function MobxCard({ movie }) {
 	const { setLike, setQueue } = useContext(MobxContext);
@@ -26,11 +27,13 @@ const Mobx = () => {
 	const inQueue = useRef(() => setFilter('IN_QUEUE'));
 	return (
 		<Page>
-			<RadioGroup>
-				<Radio label='Movies List' isSelected={filter === 'All'} changed={all.current} />
-				<Radio label='Queue List' isSelected={filter === 'IN_QUEUE'} changed={inQueue.current} />
-			</RadioGroup>
-			<BtnFetch onClick={getNewMovies} status={status} />
+			<Toolbar>
+				<RadioGroup>
+					<Radio label='Movies List' isSelected={filter === 'All'} changed={all.current} />
+					<Radio label='Queue List' isSelected={filter === 'IN_QUEUE'} changed={inQueue.current} />
+				</RadioGroup>
+				<BtnFetch onClick={getNewMovies} status={status} />
+			</Toolbar>
 			<MobxList />
 		</Page>
 	);

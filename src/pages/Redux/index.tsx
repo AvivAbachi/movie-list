@@ -7,6 +7,7 @@ import movieFilter from './store/selectors/selectors';
 import * as filterT from './store/constants/filterTypes';
 import { CardProps } from '../../components/index.d';
 import BtnFetch from '../../components/BtnFetch';
+import Toolbar from '../../components/Toolbar';
 
 const ReduxCard = memo<CardProps>(function ReduxCard({ movie }) {
 	const dispatch = useDispatch();
@@ -32,11 +33,13 @@ const Redux = () => {
 	const inQueue = useRef(() => dispatch(setFilter(filterT.IN_QUEUE)));
 	return (
 		<Page>
-			<RadioGroup>
-				<Radio label='Movies List' isSelected={filter === filterT.ALL} changed={all.current} />
-				<Radio label='Queue List' isSelected={filter === filterT.IN_QUEUE} changed={inQueue.current} />
-			</RadioGroup>
-			<BtnFetch onClick={async () => dispatch(await getNewMovies())} status={status} />
+			<Toolbar>
+				<RadioGroup>
+					<Radio label='Movies List' isSelected={filter === filterT.ALL} changed={all.current} />
+					<Radio label='Queue List' isSelected={filter === filterT.IN_QUEUE} changed={inQueue.current} />
+				</RadioGroup>
+				<BtnFetch onClick={async () => dispatch(await getNewMovies())} status={status} />
+			</Toolbar>
 			<ReduxList />
 		</Page>
 	);
