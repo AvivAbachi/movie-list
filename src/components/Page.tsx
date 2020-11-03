@@ -1,16 +1,12 @@
 import React, { FC, memo } from 'react';
-// import { motion } from 'framer-motion';
-// import { fade } from '../lib/animation';
+import { motion } from 'framer-motion';
 import { PageProps } from './index.d';
 
 const Page: FC<PageProps> = ({ children, className }) => {
 	return (
-		<div
-			className={`page ${className ?? ''}`}
-			// initial={'initial'} animate={'in'} exit={'out'} variants={fade}
-		>
+		<motion.div className={`page ${className ?? ''}`} initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
 			{children}
-		</div>
+		</motion.div>
 	);
 };
 
