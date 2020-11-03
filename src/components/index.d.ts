@@ -20,7 +20,7 @@ export interface ListProps {
 	items?: MoviesT;
 }
 
-export interface LinkImgProp {
+export interface LogoLinkProp {
 	title?: string;
 	className?: string;
 	titleClassName?: string;
