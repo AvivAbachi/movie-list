@@ -1,7 +1,7 @@
 const purgecss = require('@fullhuman/postcss-purgecss');
 const cssnano = require('cssnano');
 // const production = process.env.NODE_ENV === 'production';
-const production = true;
+const production = false;
 const plugins = production
 	? [
 			require('tailwindcss'),
