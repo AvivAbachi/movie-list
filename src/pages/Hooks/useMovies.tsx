@@ -1,6 +1,6 @@
 import React, { createContext, FC, memo, useRef, useState } from 'react';
-import { fetchMovies } from '../../lib/fetchMovies';
 import { FilterT, MoviesHooksT, StatusT } from './hooks';
+import fetchMovies from '../../lib/fetchMovies';
 import distinctArray from '../../lib/distinctArray';
 
 const useMovies = (): MoviesHooksT => {

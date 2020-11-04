@@ -11,14 +11,18 @@ export function selectNotIsQueue(movies: MoviesT) {
 
 const movieFilter = (movies: MoviesT = [], filter: FilterT = 'ALL') => {
 	switch (filter) {
-		case MOVIES_FILTERS.ALL:
+		case MOVIES_FILTERS.ALL: {
 			return movies;
-		case MOVIES_FILTERS.IN_QUEUE:
+		}
+		case MOVIES_FILTERS.IN_QUEUE: {
 			return selectIsQueue(movies);
-		case MOVIES_FILTERS.NOT_IN_QUEUE:
+		}
+		case MOVIES_FILTERS.NOT_IN_QUEUE: {
 			return selectNotIsQueue(movies);
-		default:
+		}
+		default: {
 			return movies;
+		}
 	}
 };
 export default movieFilter;

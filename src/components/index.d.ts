@@ -5,10 +5,12 @@ export interface BtnProps extends HTMLAttributes<HTMLElement> {
 	lg?: boolean;
 	disabled?: boolean;
 }
+
 export interface BtnFetchProps {
 	onClick?: Function;
 	status?: 'FETCH' | 'ERROR' | 'SUCCESS';
 }
+
 export interface CardProps {
 	movie: MovieT;
 	onLike?: () => void;
@@ -36,6 +38,7 @@ interface NavBarProps {
 	whitLocation?: boolean;
 	prefixLocation?: string;
 }
+
 export interface NavBtnProps {
 	to?: string;
 	label?: string;
@@ -46,6 +49,7 @@ export interface PageProps {
 	className?: string;
 	children?: ReactNode;
 }
+
 export interface RadioProps {
 	id?: string;
 	changed?: (event: ChangeEvent<HTMLInputElement>) => void;

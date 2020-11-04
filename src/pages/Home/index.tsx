@@ -1,10 +1,10 @@
 import React, { memo } from 'react';
 import { Page } from '../../components';
+import LogoLink from '../../components/LogoLink';
 
 import { ReactComponent as ReactIcon } from '../../assets/icons/react.svg';
-import { ReactComponent as ReduxIcon } from '../../assets/icons/redux.svg';
 import MobxIcon from '../../assets/icons/mobx.png';
-import LogoLink from '../../components/LogoLink';
+import { ReactComponent as ReduxIcon } from '../../assets/icons/redux.svg';
 
 const Home = () => {
 	return (

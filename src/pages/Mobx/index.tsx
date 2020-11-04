@@ -1,10 +1,8 @@
 import React, { FC, useContext, useRef } from 'react';
-import { ObserverCard, ObserverList, Page, Radio, RadioGroup } from '../../components';
+import { BtnFetch, ObserverCard, ObserverList, Page, Radio, RadioGroup, Toolbar } from '../../components';
 import { observer } from 'mobx-react-lite';
 import { MobxContext } from './store';
 import { CardProps } from '../../components/index.d';
-import BtnFetch from '../../components/BtnFetch';
-import Toolbar from '../../components/Toolbar';
 
 const MobxCard: FC<CardProps> = observer(function MobxCard({ movie }) {
 	const { setLike, setQueue } = useContext(MobxContext);

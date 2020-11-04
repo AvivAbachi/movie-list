@@ -1,13 +1,11 @@
 import React, { memo } from 'react';
-
 import { Redirect, Route, Switch, useLocation } from 'react-router-dom';
 import { AnimatePresence } from 'framer-motion';
 
+import Home from './pages/Home';
 import Hooks from './pages/Hooks';
 import Mobx from './pages/Mobx';
 import Redux from './pages/Redux';
-// import E404 from './pages/E404';
-import Home from './pages/Home';
 
 const Routes = () => {
 	const location = useLocation();

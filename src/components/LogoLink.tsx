@@ -1,6 +1,7 @@
 import React, { FC, memo } from 'react';
 import { Link } from 'react-router-dom';
 import { LogoLinkProp } from './index.d';
+
 const LogoLink: FC<LogoLinkProp> = ({ title, className, titleClassName, to, img, Icon, alt }) => {
 	return (
 		<Link to={to ?? '/'} className={`logo_link ${className ?? ''}`}>

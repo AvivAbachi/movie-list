@@ -1,9 +1,7 @@
 import React, { memo, useCallback, useContext, useRef } from 'react';
+import { BtnFetch, Card, List, Page, Radio, RadioGroup, Toolbar } from '../../components';
 import { CardProps } from '../../components/index.d';
-import { Card, List, Page, Radio, RadioGroup } from '../../components';
 import { HooksContext } from './useMovies';
-import BtnFetch from '../../components/BtnFetch';
-import Toolbar from '../../components/Toolbar';
 
 const HooksCard = memo<CardProps>(function HooksCard({ movie }) {
 	const context = useContext(HooksContext);
@@ -29,7 +27,7 @@ const Hooks = () => {
 	const all = useRef(() => context?.setFilter('All'));
 	const inQueue = useRef(() => context?.setFilter('IN_QUEUE'));
 	return (
-		<Page className='max-h-full'>
+		<Page>
 			<Toolbar>
 				<RadioGroup>
 					<Radio label='Movies List' isSelected={context?.filter === 'All'} changed={all.current} />

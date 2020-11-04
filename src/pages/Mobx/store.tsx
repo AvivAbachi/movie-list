@@ -1,8 +1,8 @@
 import React, { createContext, FC, useRef } from 'react';
 import { action, observable } from 'mobx';
 import { observer, useLocalObservable } from 'mobx-react-lite';
-import { fetchMovies } from '../../lib/fetchMovies';
 import { FilterT, MobxStoreT, StatusT } from './mobx';
+import fetchMovies from '../../lib/fetchMovies';
 import distinctArray from '../../lib/distinctArray';
 
 const MobxStore: MobxStoreT = observable({

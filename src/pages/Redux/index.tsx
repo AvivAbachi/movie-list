@@ -1,13 +1,11 @@
 import React, { memo, useRef } from 'react';
-import { Card, List, Page, Radio, RadioGroup } from '../../components';
+import { BtnFetch, Card, List, Page, Radio, RadioGroup, Toolbar } from '../../components';
 import { useDispatch } from 'react-redux';
 import { useTypedSelector } from './store/reducer';
 import { getNewMovies, setFilter, setLike, setQueue } from './store/action';
 import movieFilter from './store/selectors/selectors';
 import * as filterT from './store/constants/filterTypes';
 import { CardProps } from '../../components/index.d';
-import BtnFetch from '../../components/BtnFetch';
-import Toolbar from '../../components/Toolbar';
 
 const ReduxCard = memo<CardProps>(function ReduxCard({ movie }) {
 	const dispatch = useDispatch();

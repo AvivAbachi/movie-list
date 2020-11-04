@@ -1,4 +1,4 @@
-import { fetchMovies } from '../../../lib/fetchMovies';
+import fetchMovies from '../../../lib/fetchMovies';
 import * as types from './constants/actionTypes';
 import { ERROR, FETCH, SUCCESS } from './constants/statusTypes';
 import { AddQueueAction, FilterT, GetNewMoviesAction, SetLikeAction, setMoviesFilter, setStatusAction, StatusT } from './redux';
