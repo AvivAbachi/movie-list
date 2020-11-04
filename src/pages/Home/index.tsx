@@ -1,6 +1,5 @@
 import React, { memo } from 'react';
-import { Page } from '../../components';
-import LogoLink from '../../components/LogoLink';
+import { Page, LogoLink } from '../../components';
 
 import { ReactComponent as ReactIcon } from '../../assets/icons/react.svg';
 import MobxIcon from '../../assets/icons/mobx.png';

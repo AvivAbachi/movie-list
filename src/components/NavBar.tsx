@@ -7,9 +7,8 @@ const NavBar: FC<NavBarProps> = ({ children, title, whitLocation, prefixLocation
 	const classColor = pathname === '/hooks' ? ' hooks' : pathname === '/mobx' ? ' mobx' : pathname === '/redux' ? ' redux' : '';
 
 	const Location = () => {
-		const path = pathname === '/' ? '' : pathname.replace(/\//g, prefixLocation ?? ' ');
-		return path;
-	};
+		return pathname === '/' ? '' : pathname.replace(/\//g, prefixLocation ?? ' ');
+ 	};
 	return (
 		<nav className='navbar'>
 			{title && (

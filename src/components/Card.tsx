@@ -12,19 +12,19 @@ import { ReactComponent as Star } from '../assets/icons/star.svg';
 const Card: FC<CardProps> = ({ movie, onLike, onQueue }) => {
 	const titleRef = useRef<HTMLDivElement | null>(null);
 	const [hover, setHover] = useState<boolean>(false);
-	const [titleHight, setTitleHight] = useState<number>(0);
+	const [titleHeight, setTitleHeight] = useState<number>(0);
 	const genresList = useRef(movie.genre_ids.map((genreID) => getGenresName(genreID)).join(' • '));
 	const year = useRef(movie.release_date.slice(0, 4));
 	const hoverStart = useRef(() => setHover(true));
 	const hoverEnd = useRef(() => setHover(false));
 
 	useEffect(() => {
-		setTitleHight((titleRef.current?.clientHeight ?? 40) / 2);
+		setTitleHeight((titleRef.current?.clientHeight ?? 40) / 2);
 	}, [titleRef]);
 	return (
 		<motion.div
 			className='card'
-			style={{ marginTop: `calc(${titleHight}px + 2rem)` }}
+			style={{ marginTop: `calc(${titleHeight}px + 2rem)` }}
 			initial={{ opacity: 0 }}
 			animate={{ opacity: 1, transition: { duration: 1 } }}
 			exit={{ opacity: 0 }}
@@ -37,7 +37,7 @@ const Card: FC<CardProps> = ({ movie, onLike, onQueue }) => {
 			</div>
 			<div className='card__inner'>
 				<motion.div
-					style={{ paddingTop: `calc(${titleHight}px + 1rem)` }}
+					style={{ paddingTop: `calc(${titleHeight}px + 1rem)` }}
 					className='card__back'
 					initial={{ rotateY: -180 }}
 					transition={{ type: 'spring', stiffness: 75 }}
