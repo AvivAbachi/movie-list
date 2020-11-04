@@ -36,7 +36,7 @@
 		"start": "react-scripts start",
 		"watch:css": "watch  --wait=1 --interval=1 \"npm run build:css\" src/assets/",
 		"build": "npm run build:css && react-scripts build",
-		"build:css": "postcss src/assets/tailwind.css -o src/App.css",
+		"build:css": "postcss src/assets/tailwind.css -o src/styles.css",
 		"serve": "serve -d build",
 		"test": "react-scripts test",
 		"eject": "react-scripts eject"
