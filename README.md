@@ -1,46 +1,55 @@
-# Getting Started with Create React App
+# Movie List
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Movie list build whit React and use whit 3 different state managers(Hooks, Mobx, Redux)
 
-## Available Scripts
+## Demo
 
-In the project directory, you can run:
+You can see web app on this [Demo Page]().
+
+## Project setup
 
 ### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Runs the app on development mode.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+### `npm watch:css`
 
-### `npm test`
+Watch `tailwind.css` and run `npm build:css`.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### `npm build`
 
-### `npm run build`
+Builds the app for production to the `build` folder.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### `npm build:css`
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Build `styles.css` from `tailwind.css`.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### `serve`
 
-### `npm run eject`
+Runs the app on production mode form `build` folder.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Languages & tools
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### React
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+- [framer-motion](https://github.com/framer/motion)
+- [mobx](https://github.com/mobxjs/mobx)
+- [mobx-react-lite](https://github.com/mobxjs/mobx-react-lite)
+- [redux](https://github.com/reduxjs/redux)
+- [react-redux](https://github.com/reduxjs/react-redux)
+- [react-router](https://github.com/ReactTraining/react-router)
+- [typescript](github.com/Microsoft/TypeScript)
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+### CSS
 
-## Learn More
+- [autoprefixer](https://github.com/postcss/autoprefixer)
+- [cssnano](github.com/cssnano/cssnano)
+- [postcss](github.com/postcss/postcss)
+- [postcss-cli](github.com/postcss/postcss-cli)
+- [purgecss](github.com/FullHuman/purgecss)
+- [tailwindcss](https://github.com/tailwindlabs/tailwindcss)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### NPM
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- [cross-env](https://github.com/kentcdodds/cross-env)
+- [watch](https://github.com/mikeal/watch)
