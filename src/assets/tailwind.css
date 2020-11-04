@@ -199,6 +199,7 @@ body {
 
 /* Movie Card */
 .card {
+	will-change: transform;
 	flex-basis: 100%;
 	perspective: 50cm;
 	width: min-content;
@@ -263,7 +264,6 @@ body {
 
 .card__back {
 	backface-visibility: hidden;
-	will-change: transform;
 	height: 360px;
 	width: 240px;
 	@apply border;
@@ -360,7 +360,7 @@ body {
 	@apply font-medium;
 	@apply tracking-wider;
 	@apply border;
-	@apply border-gray-200;
+	@apply border-gray-100;
 	@apply -translate-y-1/2;
 	@apply -translate-x-1/2;
 }
