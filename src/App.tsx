@@ -2,7 +2,7 @@ import React, { FC, memo } from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
 import AppRoutes from './App.Routes';
 import { NavBar, NavBtn } from './components';
-import './App.css';
+import './styles.css';
 
 import HooksProvider from './pages/Hooks/useMovies';
 import MobxProvider from './pages/Mobx/store';
