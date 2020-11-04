@@ -4,7 +4,7 @@ Movie list build whit React and use whit 3 different state managers(Hooks, Mobx,
 
 ## Demo
 
-You can see web app on this [Demo Page]().
+You can see web app on this [Demo Page](https://movie-list-eight.vercel.app).
 
 ## Project setup
 
@@ -32,24 +32,27 @@ Runs the app on production mode form `build` folder.
 
 ### React
 
-- [framer-motion](https://github.com/framer/motion)
-- [mobx](https://github.com/mobxjs/mobx)
-- [mobx-react-lite](https://github.com/mobxjs/mobx-react-lite)
-- [redux](https://github.com/reduxjs/redux)
-- [react-redux](https://github.com/reduxjs/react-redux)
-- [react-router](https://github.com/ReactTraining/react-router)
-- [typescript](github.com/Microsoft/TypeScript)
+- [Mobx](https://github.com/mobxjs/mobx)
+- [Mobx React Lite](https://github.com/mobxjs/mobx-react-lite)
+- [Redux](https://github.com/reduxjs/redux)
+- [React Redux](https://github.com/reduxjs/react-redux)
+- [Framer Motion](https://github.com/framer/motion)
+- [React Router](https://github.com/ReactTraining/react-router)
+- [TypeScript](https://github.com/Microsoft/TypeScript)
 
 ### CSS
 
-- [autoprefixer](https://github.com/postcss/autoprefixer)
-- [cssnano](github.com/cssnano/cssnano)
-- [postcss](github.com/postcss/postcss)
-- [postcss-cli](github.com/postcss/postcss-cli)
-- [purgecss](github.com/FullHuman/purgecss)
-- [tailwindcss](https://github.com/tailwindlabs/tailwindcss)
+- [Tailwindcss](https://github.com/tailwindlabs/tailwindcss)
+- [PostCSS](https://github.com/postcss/postcss)
+- [Autoprefixer](https://github.com/postcss/autoprefixer)
+- [CSS Nano](https://github.com/cssnano/cssnano)
+- [PurgeCSS](https://github.com/FullHuman/purgecss)
 
 ### NPM
 
-- [cross-env](https://github.com/kentcdodds/cross-env)
-- [watch](https://github.com/mikeal/watch)
+- [Cross-ENV](https://github.com/kentcdodds/cross-env)
+- [Watch](https://github.com/mikeal/watch)
+
+### API
+
+- [The Movie Database](https://www.themoviedb.org/)
