@@ -1,18 +1,106 @@
 @tailwind base;
 @tailwind components;
 
-/* Quicksand Font */
+/* Font */
 @font-face {
-	font-family: 'Quicksand script=all rev=1';
+	font-family: 'Roboto';
+	src: url('/src/assets/font/Roboto-Light.woff2') format('woff2'), url('/src/assets/font/Roboto-Light.woff') format('woff');
+	font-weight: 300;
 	font-style: normal;
-	font-weight: 300 700;
 	font-display: swap;
-	src: url(https://fonts.gstatic.com/s/quicksand/v21/6xKtdSZaM9iE8KbpRA_hJFQNcOM.woff2) format('woff2');
+}
+
+@font-face {
+	font-family: 'Roboto';
+	src: url('/src/assets/font/Roboto-BlackItalic.woff2') format('woff2'), url('/src/assets/font/Roboto-BlackItalic.woff') format('woff');
+	font-weight: 900;
+	font-style: italic;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Roboto';
+	src: url('/src/assets/font/Roboto-Bold.woff2') format('woff2'), url('/src/assets/font/Roboto-Bold.woff') format('woff');
+	font-weight: bold;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Roboto';
+	src: url('/src/assets/font/Roboto-Medium.woff2') format('woff2'), url('/src/assets/font/Roboto-Medium.woff') format('woff');
+	font-weight: 500;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Roboto';
+	src: url('/src/assets/font/Roboto-LightItalic.woff2') format('woff2'), url('/src/assets/font/Roboto-LightItalic.woff') format('woff');
+	font-weight: 300;
+	font-style: italic;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Roboto';
+	src: url('/src/assets/font/Roboto-Italic.woff2') format('woff2'), url('/src/assets/font/Roboto-Italic.woff') format('woff');
+	font-weight: normal;
+	font-style: italic;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Roboto';
+	src: url('/src/assets/font/Roboto-Thin.woff2') format('woff2'), url('/src/assets/font/Roboto-Thin.woff') format('woff');
+	font-weight: 100;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Roboto';
+	src: url('/src/assets/font/Roboto-MediumItalic.woff2') format('woff2'), url('/src/assets/font/Roboto-MediumItalic.woff') format('woff');
+	font-weight: 500;
+	font-style: italic;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Roboto';
+	src: url('/src/assets/font/Roboto-ThinItalic.woff2') format('woff2'), url('/src/assets/font/Roboto-ThinItalic.woff') format('woff');
+	font-weight: 100;
+	font-style: italic;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Roboto';
+	src: url('/src/assets/font/Roboto-BoldItalic.woff2') format('woff2'), url('/src/assets/font/Roboto-BoldItalic.woff') format('woff');
+	font-weight: bold;
+	font-style: italic;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Roboto';
+	src: url('/src/assets/font/Roboto-Black.woff2') format('woff2'), url('/src/assets/font/Roboto-Black.woff') format('woff');
+	font-weight: 900;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Roboto';
+	src: url('/src/assets/font/Roboto-Regular.woff2') format('woff2'), url('/src/assets/font/Roboto-Regular.woff') format('woff');
+	font-weight: normal;
+	font-style: normal;
+	font-display: swap;
 }
 
 /* Body */
 body {
-	font-family: 'Quicksand', 'Nunito', 'Helvetica Neue', 'Segoe UI', Roboto, sans-serif;
+	font-family: 'Roboto', 'Segoe UI', 'Helvetica Neue', Arial, 'Noto Sans', sans-serif;
 	@apply h-screen;
 	@apply text-center;
 	@apply overflow-x-hidden;
@@ -130,6 +218,8 @@ body {
 	@apply shadow-xl;
 	@apply absolute;
 	@apply z-10;
+	@apply border;
+	@apply border-gray-200;
 	@apply transform;
 	@apply -translate-y-1/2;
 	@apply -translate-x-1/2;
@@ -176,6 +266,8 @@ body {
 	will-change: transform;
 	height: 360px;
 	width: 240px;
+	@apply border;
+	@apply border-gray-200;
 	@apply text-sm;
 	@apply absolute;
 	@apply top-0;
@@ -235,6 +327,8 @@ body {
 	@apply transition-transform;
 	@apply duration-300;
 	@apply transform;
+	@apply border;
+	@apply border-gray-200;
 }
 
 .logo_link:hover {
@@ -263,6 +357,10 @@ body {
 	@apply py-1;
 	@apply bg-white;
 	@apply transform;
+	@apply font-medium;
+	@apply tracking-wider;
+	@apply border;
+	@apply border-gray-200;
 	@apply -translate-y-1/2;
 	@apply -translate-x-1/2;
 }
@@ -283,13 +381,13 @@ body {
 }
 
 .navbar__title {
-	font-weight: 350;
 	@apply transition-colors;
 	@apply duration-300;
 	@apply text-teal-500;
 	@apply inline-block;
 	@apply capitalize;
 	@apply text-4xl;
+	@apply font-medium;
 	@apply mt-5;
 	@apply tracking-wide;
 	@apply float-left;
@@ -303,6 +401,8 @@ body {
 .nav_btn {
 	@apply inline-block;
 	@apply text-lg;
+	@apply font-medium;
+	@apply tracking-wider;
 	@apply text-gray-500;
 }
 
