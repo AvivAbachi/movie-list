@@ -6,8 +6,7 @@ export interface BtnProps extends HTMLAttributes<HTMLElement> {
 	disabled?: boolean;
 }
 
-export interface BtnFetchProps {
-	onClick?: Function;
+export interface BtnFetchProps extends HTMLAttributes<HTMLElement> {
 	status?: 'FETCH' | 'ERROR' | 'SUCCESS';
 }
 
@@ -46,7 +45,7 @@ export interface NavBtnProps {
 }
 
 export interface PageProps {
-	className?: string;
+	home?: boolean;
 	children?: ReactNode;
 }
 

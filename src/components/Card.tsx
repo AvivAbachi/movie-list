@@ -19,7 +19,11 @@ const Card: FC<CardProps> = ({ movie, onLike, onQueue }) => {
 	const hoverEnd = useRef(() => setHover(false));
 
 	useEffect(() => {
-		setTitleHeight((titleRef.current?.clientHeight ?? 40) / 2);
+		if (titleRef.current) {
+			setTitleHeight(titleRef.current.clientHeight / 2);
+		} else {
+			setTitleHeight(20);
+		}
 	}, [titleRef]);
 	return (
 		<motion.div

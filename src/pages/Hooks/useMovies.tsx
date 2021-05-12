@@ -3,7 +3,7 @@ import { FilterT, MoviesHooksT, StatusT } from './hooks';
 import fetchMovies from '../../lib/fetchMovies';
 import distinctArray from '../../lib/distinctArray';
 
-const useMovies = (): MoviesHooksT => {
+export const useMovies = (): MoviesHooksT => {
 	const [movies, setMovies] = useState<MoviesT>([]);
 	const [filter, setStateFilter] = useState<FilterT>('All');
 	const [status, setStateStatus] = useState<StatusT>();

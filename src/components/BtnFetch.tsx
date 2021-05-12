@@ -3,7 +3,7 @@ import { BtnFetchProps } from './index.d';
 import { Btn } from '.';
 import { ReactComponent as Loading } from '../assets/icons/loading.svg';
 
-const BtnFetch: FC<BtnFetchProps> = ({ onClick, status }: any) => {
+const BtnFetch: FC<BtnFetchProps> = ({ onClick, status }) => {
 	return (
 		<Btn onClick={onClick} disabled={status === 'FETCH'} className='btn-fetch' lg>
 			{status === 'FETCH' && <Loading className='loading' />}
