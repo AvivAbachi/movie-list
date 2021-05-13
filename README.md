@@ -1,6 +1,6 @@
 # Movie List
 
-Movie list build whit React and use whit 3 different state managers(Hooks, Mobx, Redux)
+Movie list build with React and use with 3 different state managers(Hooks, Mobx, Redux)
 
 ## Demo
 
