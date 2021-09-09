@@ -1,4 +1,4 @@
-import React, { memo, useRef } from 'react';
+import { memo, useRef } from 'react';
 import { BtnFetch, Card, List, Page, Radio, RadioGroup, Toolbar } from '../../components';
 import { useDispatch } from 'react-redux';
 import { useTypedSelector } from './store/reducer';

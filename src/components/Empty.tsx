@@ -1,20 +1,7 @@
-import React from 'react';
-// import { motion } from 'framer-motion';
-// import { fade } from '../lib/animation';
+import { memo } from 'react';
 
-const Empty = () => {
-	return (
-		<div
-			className='text-4xl font-bold justify-center text-gray-700 text-opacity-50 h-full
-          flex items-center py-16'
-			// initial={'initial'}
-			// animate={'in'}
-			// exit={'out'}
-			// variants={fade}
-		>
-			No Movies
-		</div>
-	);
-};
+const Empty = () => (
+	<div className='text-4xl font-bold justify-center text-gray-700 text-opacity-50 w-full flex items-center pt-20'>No Movies</div>
+);
 
-export default Empty;
+export default memo(Empty);

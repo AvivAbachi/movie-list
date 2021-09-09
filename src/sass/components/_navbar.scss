@@ -1,0 +1,51 @@
+.navbar {
+	@apply w-full bg-white relative flex items-center justify-center flex-wrap flex-col shadow-xl px-4 z-10;
+	&__title {
+		@apply transition-all duration-300 text-teal-500 inline-block capitalize text-4xl font-medium mt-5 tracking-wide float-left outline-none ring-2 ring-transparent rounded-lg px-3 py-1 focus:ring-current hover:opacity-50;
+	}
+	&__menu {
+		@apply inline-block;
+	}
+}
+
+.nav_btn {
+	@apply inline-block text-lg font-medium tracking-wider;
+	&__link {
+		@apply transition-all duration-500 ease-in-out block rounded-lg px-3 py-1 my-4 mx-4 shadow-none text-gray-500  ring-2 ring-transparent outline-none;
+		&:hover {
+			@apply bg-gray-500 bg-opacity-10 text-opacity-50;
+		}
+		&:focus {
+			@apply ring-gray-500 ring-opacity-50;
+		}
+
+		&.hooks {
+			@apply text-hooks;
+			&:hover {
+				@apply bg-hooks bg-opacity-10 text-opacity-50;
+			}
+			&:focus {
+				@apply ring-hooks ring-opacity-75;
+			}
+		}
+
+		&.mobx {
+			@apply text-mobx;
+			&:hover {
+				@apply bg-mobx bg-opacity-10 text-opacity-50;
+			}
+			&:focus {
+				@apply ring-mobx ring-opacity-75;
+			}
+		}
+		&.redux {
+			@apply text-redux;
+			&:hover {
+				@apply bg-redux bg-opacity-10 text-opacity-50;
+			}
+			&:focus {
+				@apply ring-redux ring-opacity-75;
+			}
+		}
+	}
+}

@@ -1,4 +1,4 @@
-import React, { createContext, FC, useRef } from 'react';
+import { createContext, ReactNode, useRef } from 'react';
 import { action, observable } from 'mobx';
 import { observer, useLocalObservable } from 'mobx-react-lite';
 import { FilterT, MobxStoreT, StatusT } from './mobx';
@@ -35,7 +35,7 @@ const MobxStore: MobxStoreT = observable({
 
 export const MobxContext = createContext<MobxStoreT>(MobxStore);
 
-const MobxProvider: FC<ChildrenProps> = ({ children }) => {
+const MobxProvider = ({ children }: { children: ReactNode }) => {
 	const mobx = useRef(useLocalObservable(() => MobxStore));
 	return <MobxContext.Provider value={mobx.current}>{children}</MobxContext.Provider>;
 };

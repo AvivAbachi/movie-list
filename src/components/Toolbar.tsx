@@ -1,6 +1,6 @@
-import React, { FC, memo } from 'react';
+import { memo, ReactNode } from 'react';
 
-const Toolbar: FC<ChildrenProps> = ({ children }) => {
+const Toolbar = ({ children }: { children: ReactNode }) => {
 	return <div className='toolbar'>{children}</div>;
 };
 

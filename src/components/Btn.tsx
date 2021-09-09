@@ -1,7 +1,7 @@
-import { createElement, FC, memo, useRef } from 'react';
+import { createElement, memo, useRef } from 'react';
 import { BtnProps } from './index.d';
 
-const Btn: FC<BtnProps> = (props) => {
+const Btn = (props: BtnProps) => {
 	const Tag = useRef(props.onClick ? 'button' : 'div');
 	const btnColor = useRef(
 		`${props.color === 'purple' ? ' btn-purple' : props.color === 'red' ? ' btn-red' : props.color === 'green' ? ' btn-green' : ''}`

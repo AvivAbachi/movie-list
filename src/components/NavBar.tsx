@@ -1,10 +1,11 @@
-import React, { FC, memo } from 'react';
+import { memo } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { NavBarProps } from './index.d';
 
-const NavBar: FC<NavBarProps> = ({ children, title, whitLocation, prefixLocation }) => {
+const NavBar = ({ children, title, whitLocation, prefixLocation }: NavBarProps) => {
 	const { pathname } = useLocation();
-	const classColor = pathname === '/hooks' ? ' hooks' : pathname === '/mobx' ? ' mobx' : pathname === '/redux' ? ' redux' : '';
+	const classColor =
+		pathname === '/hooks' ? ' text-hooks' : pathname === '/mobx' ? ' text-mobx' : pathname === '/redux' ? ' text-redux' : '';
 
 	const Location = () => {
 		return pathname === '/' ? '' : pathname.replace(/\//g, prefixLocation || ' ');
@@ -12,12 +13,12 @@ const NavBar: FC<NavBarProps> = ({ children, title, whitLocation, prefixLocation
 	return (
 		<nav className='navbar'>
 			{title && (
-				<h1 className={`navbar__title${classColor}`}>
-					<Link to='/'>
+				<Link to='/' className={`navbar__title${classColor}`}>
+					<h1>
 						{title}
 						{whitLocation && Location()}
-					</Link>
-				</h1>
+					</h1>
+				</Link>
 			)}
 			{children && <ul className='nav_menu'>{children}</ul>}
 		</nav>

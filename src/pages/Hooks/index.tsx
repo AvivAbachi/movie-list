@@ -1,4 +1,4 @@
-import React, { memo, useCallback, useContext, useRef } from 'react';
+import { memo, useCallback, useContext, useRef } from 'react';
 import { BtnFetch, Card, List, Page, Radio, RadioGroup, Toolbar } from '../../components';
 import { CardProps } from '../../components/index.d';
 import { HooksContext } from './useMovies';
@@ -18,11 +18,13 @@ const HookList = memo(function HookList() {
 	if (context) {
 		return (
 			<List>
-				{context.filter === 'All' && context.movies.map((movie) => <HooksCard key={movie.id} movie={movie} />)}
-				{context.filter === 'IN_QUEUE' && context.queue.map((movie) => <HooksCard key={movie.id} movie={movie} />)}
+				{context.filter === 'All'
+					? context.movies.map((movie) => <HooksCard key={movie.id} movie={movie} />)
+					: context.queue.map((movie) => <HooksCard key={movie.id} movie={movie} />)}
 			</List>
 		);
 	}
+
 	return null;
 });
 

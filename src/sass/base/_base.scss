@@ -1,0 +1,10 @@
+@tailwind base;
+@tailwind components;
+body {
+	font-family: 'Roboto', 'Segoe UI', 'Helvetica Neue', Arial, 'Noto Sans', sans-serif;
+	@apply h-screen text-center overflow-x-hidden overflow-y-hidden text-gray-700 bg-gradient-to-t from-gray-200 to-gray-100 subpixel-antialiased;
+}
+
+.app {
+	@apply flex flex-col max-h-screen;
+}

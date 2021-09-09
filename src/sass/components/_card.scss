@@ -1,0 +1,44 @@
+.card {
+	@apply inline-block pb-10;
+	will-change: transform;
+	flex-basis: 100%;
+	perspective: 50cm;
+	width: min-content;
+	svg {
+		@apply w-6 h-6;
+	}
+	&__title {
+		@apply font-medium bg-white py-2 px-4 rounded-md shadow-xl absolute z-10 border border-gray-200 transform -translate-y-1/2 -translate-x-1/2;
+		max-width: 208px;
+		left: 50%;
+		width: fit-content;
+	}
+	&__buttons {
+		@apply flex absolute transform justify-center z-20 -translate-y-1/2 -translate-x-1/2;
+		left: 50%;
+		width: 240px;
+	}
+
+	&__inner {
+		@apply relative mx-auto;
+		height: 360px;
+		width: 240px;
+		max-width: 240px;
+	}
+	&__img {
+		@apply w-full max-w-full h-full relative rounded-lg shadow-lg bg-gray-900;
+		backface-visibility: hidden;
+	}
+	&__back {
+		@apply border border-gray-200 text-sm absolute top-0 overflow-hidden shadow-lg rounded-lg bg-white flex flex-col justify-between px-4;
+		backface-visibility: hidden;
+		height: 360px;
+		width: 240px;
+	}
+	&__overview {
+		@apply overflow-y-auto text-left;
+	}
+	&__genres {
+		@apply text-xs pb-6 pt-2 w-full;
+	}
+}

@@ -1,4 +1,4 @@
-import { HTMLAttributes, ReactNode, FC, NamedExoticComponent, ChangeEvent, SVGProps } from 'react';
+import { HTMLAttributes, ReactNode, NamedExoticComponent, ChangeEvent, SVGProps } from 'react';
 
 export interface BtnProps extends HTMLAttributes<HTMLElement> {
 	color?: 'red' | 'purple' | 'green';
@@ -17,7 +17,7 @@ export interface CardProps {
 }
 
 export interface ListProps {
-	Card: FC<CardProps> | NamedExoticComponent<CardProps>;
+	Card: ReactNode<CardProps> | NamedExoticComponent<CardProps>;
 	items?: MoviesT;
 }
 
@@ -28,7 +28,7 @@ export interface LogoLinkProp {
 	to?: string;
 	alt?: string;
 	img?: string;
-	Icon?: FC<SVGProps<SVGSVGElement>>;
+	Icon?: ReactNode<SVGProps<SVGSVGElement>>;
 }
 
 interface NavBarProps {
@@ -42,6 +42,7 @@ export interface NavBtnProps {
 	to?: string;
 	label?: string;
 	className?: string;
+	colors?: 'hooks' | 'mobx' | 'redux';
 }
 
 export interface PageProps {

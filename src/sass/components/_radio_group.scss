@@ -1,0 +1,19 @@
+.radio_group {
+	@apply block rounded-lg bg-gray-800 py-2 px-2 m-4 shadow-xl;
+}
+
+.radio {
+	@apply whitespace-nowrap text-gray-400 text-xl font-medium px-2 py-1 cursor-pointer transition-colors duration-1000 border-r border-gray-600;
+
+	.radio__input {
+		@apply hidden;
+	}
+
+	&.radio-active {
+		@apply text-white;
+	}
+
+	&:last-of-type {
+		@apply border-none border-0;
+	}
+}

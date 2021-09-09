@@ -1,0 +1,28 @@
+@screen sm {
+	.card {
+		flex-basis: 50%;
+	}
+}
+@screen md {
+	.card {
+		flex-basis: 33.333%;
+	}
+	.navbar {
+		@apply flex-row;
+		@apply justify-between;
+	}
+
+	.navbar__title {
+		@apply mt-0;
+	}
+}
+@screen lg {
+	.card {
+		flex-basis: 25%;
+	}
+}
+@screen xl {
+	.card {
+		flex-basis: 20%;
+	}
+}

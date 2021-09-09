@@ -1,10 +1,10 @@
-import React, { FC, useContext, useRef } from 'react';
+import { useContext, useRef } from 'react';
 import { BtnFetch, ObserverCard, ObserverList, Page, Radio, RadioGroup, Toolbar } from '../../components';
 import { observer } from 'mobx-react-lite';
 import { MobxContext } from './store';
 import { CardProps } from '../../components/index.d';
 
-const MobxCard: FC<CardProps> = observer(function MobxCard({ movie }) {
+const MobxCard = observer(function MobxCard({ movie }: CardProps) {
 	const { setLike, setQueue } = useContext(MobxContext);
 	return <ObserverCard movie={movie} onLike={() => setLike(movie)} onQueue={() => setQueue(movie)} />;
 });
@@ -13,8 +13,9 @@ const MobxList = observer(function Queue() {
 	const { movies, queue, filter } = useContext(MobxContext);
 	return (
 		<ObserverList>
-			{filter === 'All' && movies.map((movie) => <MobxCard key={movie.id} movie={movie} />)}
-			{filter === 'IN_QUEUE' && queue.map((movie) => <MobxCard key={movie.id} movie={movie} />)}
+			{filter === 'All'
+				? movies.map((movie) => <MobxCard key={movie.id} movie={movie} />)
+				: queue.map((movie) => <MobxCard key={movie.id} movie={movie} />)}
 		</ObserverList>
 	);
 });

@@ -1,0 +1,15 @@
+.card__overview::-webkit-scrollbar,
+.page::-webkit-scrollbar {
+	@apply h-3 w-3;
+}
+
+.card__overview::-webkit-scrollbar-track,
+.page::-webkit-scrollbar-track {
+	@apply bg-transparent;
+}
+
+.card__overview::-webkit-scrollbar-thumb,
+.page::-webkit-scrollbar-thumb {
+	/* box-shadow: rgba(0, 0, 0, 0.12) 0 3px 13px 1px; */
+	@apply from-blue-500 to-purple-500 bg-gradient-to-t rounded-full;
+}

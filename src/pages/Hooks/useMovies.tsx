@@ -1,4 +1,4 @@
-import React, { createContext, FC, memo, useRef, useState } from 'react';
+import { createContext, memo, ReactNode, useRef, useState } from 'react';
 import { FilterT, MoviesHooksT, StatusT } from './hooks';
 import fetchMovies from '../../lib/fetchMovies';
 import distinctArray from '../../lib/distinctArray';
@@ -62,7 +62,7 @@ export const useMovies = (): MoviesHooksT => {
 
 export const HooksContext = createContext<MoviesHooksT | null>(null);
 
-const HooksProvider: FC<ChildrenProps> = ({ children }) => {
+const HooksProvider = ({ children }: { children: ReactNode }) => {
 	const hooks = useMovies();
 	return <HooksContext.Provider value={hooks}>{children}</HooksContext.Provider>;
 };

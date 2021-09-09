@@ -1,10 +1,6 @@
-/// <reference types="react-scripts" />
+/// <reference types="vite/client" />
 
 export declare global {
-	interface ChildrenProps {
-		children?: ReactNode;
-	}
-
 	type MoviesT = MovieT[];
 
 	type MovieT = {
@@ -17,7 +13,8 @@ export declare global {
 		backdrop_path: string;
 		original_language: string;
 		original_title: string;
-		genre_ids: number[];
+		genre_ids?: number[];
+		genre_list?: string;
 		title: string;
 		vote_average: number;
 		overview: string;
