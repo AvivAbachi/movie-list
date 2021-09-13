@@ -4,7 +4,7 @@ import { AnimatePresence, AnimateSharedLayout, motion } from 'framer-motion';
 import Empty from './Empty';
 
 const List = ({ children }: { children: ReactNode }) => {
-	const isEmpty = children?.length == 0;
+	const isEmpty = Array.isArray(children) && children?.length === 0;
 	return (
 		<AnimateSharedLayout>
 			<motion.div className='list' layout>
