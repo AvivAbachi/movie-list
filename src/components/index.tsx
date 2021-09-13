@@ -3,7 +3,7 @@ export { default as BtnFetch } from './BtnFetch';
 export { default as Card } from './Card';
 export { ObserverCard } from './Card';
 export { default as Empty } from './Empty';
-export { default as Icons } from './icons';
+export { default as Icons } from './Icons';
 export { default as List } from './List';
 export { ObserverList } from './List';
 export { default as LogoLink } from './LogoLink';
