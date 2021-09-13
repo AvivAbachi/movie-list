@@ -45,14 +45,8 @@ Runs the app on production mode form `build` folder.
 - [Tailwindcss](https://github.com/tailwindlabs/tailwindcss)
 - [PostCSS](https://github.com/postcss/postcss)
 - [Autoprefixer](https://github.com/postcss/autoprefixer)
-- [CSS Nano](https://github.com/cssnano/cssnano)
 - [PurgeCSS](https://github.com/FullHuman/purgecss)
 
 ### API
 
 - [The Movie Database](https://www.themoviedb.org/)
-
-### NPM
-
-- [Cross-ENV](https://github.com/kentcdodds/cross-env)
-- [Watch](https://github.com/mikeal/watch)
